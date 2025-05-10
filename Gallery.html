@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kolhapur - Then & Now</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url(img/old.jpg);
+      }
+
+      .compare-gallery {
+        padding: 60px 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        background: linear-gradient(to right, #fefefe, #e6e6e6);
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 2.7rem;
+        color: #b22222;
+        margin-bottom: 60px;
+        text-shadow: 1px 1px #fff;
+      }
+
+      .compare-box {
+        margin-bottom: 70px;
+        border-radius: 15px;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        margin-inline: auto;
+      }
+
+      .compare-text {
+        font-size: 1.9rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #b22222;
+        display: inline-block;
+        padding-bottom: 8px;
+      }
+
+      .compare-images {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+      }
+
+      .image-box {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease;
+        background-color: #fff;
+      }
+
+      .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .image-box span {
+        position: absolute;
+        bottom: 0;
+        background: rgba(178, 34, 34, 0.85);
+        color: #fff;
+        width: 100%;
+        padding: 8px 0;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .image-box:hover img {
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .image-box {
+          width: 90%;
+          height: 180px;
+        }
+      }
+
+      .temple-description {
+        background: linear-gradient(to right, #e9c46a, #f4a261, #e76f51);
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-radius: 16px;
+        max-width: 1000px;
+        color: #264653;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+      }
+
+      .temple-description p {
+        margin-bottom: 15px;
+      }
+
+      .temple-description strong {
+        color: #2a9d8f;
+      }
+
+      .temple-description .highlight {
+        background-color: #264653;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+
+      .fort-description {
+        background: linear-gradient(to right, #2a9d8f, #e9c46a, #f4a261);
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-radius: 16px;
+        max-width: 1000px;
+        color: #264653;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+      }
+
+      .fort-description p {
+        margin-bottom: 15px;
+      }
+
+      .fort-description strong {
+        color: #e76f51;
+      }
+
+      .fort-description .highlight {
+        background-color: #264653;
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 6px;
+      }
+
+      .palace-description {
+        background: linear-gradient(to right, #f4a261, #e76f51, #264653);
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-radius: 16px;
+        max-width: 1000px;
+        color: #fff;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        text-align: justify;
+      }
+
+      .palace-description p {
+        margin-bottom: 15px;
+      }
+
+      .palace-description strong {
+        color: #ffe8a1;
+      }
+
+      .palace-description .highlight {
+        background-color: #2a9d8f;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      .rankala-description {
+        background: linear-gradient(to right, #2a9d8f, #e9c46a, #f4a261);
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-radius: 16px;
+        max-width: 1000px;
+        color: #1e1e1e;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        text-align: justify;
+      }
+
+      .rankala-description h3.rankala-title {
+        font-size: 1.8rem;
+        color: #264653;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .rankala-description p {
+        margin-bottom: 15px;
+      }
+
+      .rankala-description strong {
+        color: #264653;
+      }
+
+      .rankala-description .highlight-rankala {
+        background-color: #e76f51;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+
+      .jyotiba-description {
+        background: linear-gradient(to right, #8ecae6, #219ebc, #023047);
+        padding: 30px 25px;
+        margin: 30px auto;
+        border-radius: 16px;
+        max-width: 1000px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        text-align: justify;
+      }
+
+      .jyotiba-description h3.jyotiba-title {
+        font-size: 1.8rem;
+        color: #ffb703;
+        margin-bottom: 15px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .jyotiba-description p {
+        margin-bottom: 15px;
+      }
+
+      .jyotiba-description strong {
+        color: #ffd166;
+      }
+
+      .jyotiba-description .highlight-jyotiba {
+        background-color: #fb8500;
+        color: #fff;
+        padding: 3px 8px;
+        border-radius: 6px;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+      }
+
+      .navbar .logo a {
+        color: white;
+        font-size: 2rem;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        list-style-type: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0 15px;
+      }
+
+      .nav-links li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+      }
+
+      .nav-links li a:hover {
+        color: #f39c12; /* Gold color for hover effect */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">माझं कोल्हापूर</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+      </ul>
+    </nav>
+
+    <section class="compare-gallery" id="compare-gallery">
+      <h2 class="section-title">Then & Now: Kolhapur's Iconic Places</h2>
+
+      <div class="compare-box">
+        <div class="compare-text">Mahalaxmi Temple</div>
+        <div class="compare-images">
+          <div class="image-box">
+            <img src="img/ok.jpg" alt="Old Mahalaxmi Temple" />
+            <span>Old</span>
+          </div>
+          <div class="image-box">
+            <img src="img/nm.jpg" alt="New Mahalaxmi Temple" />
+            <span>New</span>
+          </div>
+        </div>
+        <div class="temple-description">
+          <p>
+            <strong>महालक्ष्मी मंदिर</strong> हे महाराष्ट्रातील कोल्हापूर
+            शहरामधील एक शक्तीपीठ आहे. हे मंदिर भारतातील प्रमुख देवी मंदिरांपैकी
+            एक असून <strong>अंबाबाई मंदिर</strong> म्हणूनही ओळखले जाते. या
+            मंदिराला सुमारे <strong>बाराशे वर्षांचा इतिहास</strong> आहे. येथे
+            दरवर्षी लाखो भाविक दर्शनासाठी येतात. मंदिराची
+            <span class="highlight">भव्य स्थापत्यकला</span>,
+            <span class="highlight">प्राचीन इतिहास</span> आणि
+            <span class="highlight">धार्मिक महत्त्व</span> यामुळे हे मंदिर
+            भाविकांसाठी आणि पर्यटकांसाठी विशेष आकर्षणाचे केंद्र आहे.
+          </p>
+          <p>
+            कोल्हापूरचे महालक्ष्मी मंदिर हे केवळ धार्मिक स्थळच नाही, तर एक
+            <strong>ऐतिहासिक आणि सांस्कृतिक वारसा</strong> आहे. हा वारसा
+            जपण्यासाठी प्रशासन आणि स्थानिक लोक
+            <span class="highlight">एकत्रितपणे प्रयत्न</span> करत आहेत.
+          </p>
+          <p>
+            Wikipedia Link:
+            <a href="https://en.wikipedia.org/wiki/Mahalakshmi_Temple,_Kolhapur"
+              >Click Here</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="compare-box">
+        <div class="compare-text">Panhala Fort</div>
+        <div class="compare-images">
+          <div class="image-box">
+            <img src="img/po.jpeg" alt="Old Panhala Fort" />
+            <span>Old</span>
+          </div>
+          <div class="image-box">
+            <img src="img/pn.jpg" alt="New Panhala Fort" />
+            <span>New</span>
+          </div>
+        </div>
+        <div class="fort-description">
+          <p>
+            <strong>पन्हाळा किल्ला</strong> (ज्याला पन्हाळगड आणि "सापांचे घर"
+            असेही म्हणतात), हा महाराष्ट्रातील कोल्हापूरच्या वायव्येस २० किलोमीटर
+            अंतरावर <strong>पन्हाळा</strong> येथे स्थित आहे.
+            <span class="highlight">सह्याद्री पर्वतरांगेतील</span> एका खिंडीकडे
+            पाहताना हे सामरिकदृष्ट्या स्थित आहे, जो महाराष्ट्राच्या आतील भागात
+            विजापूरपासून किनारपट्टीच्या भागात जाणारा एक प्रमुख व्यापारी मार्ग
+            होता.
+          </p>
+          <p>
+            त्याच्या <strong>सामरिक स्थानामुळे</strong>, दख्खनमध्ये मराठे, मुघल
+            आणि छत्रपती शिवाजी महाराज, ईस्ट इंडिया कंपनीचे नातू ब्रिटीश यांच्यात
+            झालेल्या अनेक चकमकींचे ते केंद्र होते. यामध्ये सर्वात उल्लेखनीय
+            म्हणजे <span class="highlight">पावन खिंडची लढाई</span>. येथे,
+            कोल्हापूरच्या
+            <strong>राणी रीजेंट ताराबाई राणीसाहेबांनी</strong> त्यांचे
+            सुरुवातीचे वर्ष घालवले.
+          </p>
+          <p>
+            किल्ल्याचे अनेक भाग आणि त्यातील संरचना अजूनही शाबूत आहेत.
+            <strong>आकारात झिगझॅग</strong> असल्यामुळे त्याला 'सापांचा किल्ला'
+            असेही म्हणतात.
+          </p>
+          <p>
+            Wikipedia Link:
+            <a href="https://en.wikipedia.org/wiki/Panhala_Fort">Click Here</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="compare-box">
+        <div class="compare-text">New Palace</div>
+        <div class="compare-images">
+          <div class="image-box">
+            <img src="img/op.jpeg" alt="Old New Palace" />
+            <span>Old</span>
+          </div>
+          <div class="image-box">
+            <img src="img/np.jpg" alt="New New Palace" />
+            <span>New</span>
+          </div>
+        </div>
+        <div class="palace-description">
+          <p>
+            <strong>न्यु पॅलेस</strong> भवानी मंडप – कसबा बावडा मार्गावर स्थित
+            एक <span class="highlight">प्राचीन वास्तू</span> आहे. 1877 – 1884
+            ह्या कालावधीत बांधलेली ही ईमारत काळ्या, सपाट केलेल्या दगडांपासून
+            बनलेली आहे, जी सर्व प्रवाशांचं लक्ष वेधून घेते.
+          </p>
+          <p>
+            ईमारतीला लागूनच एक बाग आहे ज्याला दगडांच्या भिंती आणि तारांचे कुंपण
+            आहे. संपूर्ण ईमारत अष्टकोनी आहे आणि मध्यभागी भव्य
+            <strong>बुरूज</strong> आहे. 1877 मध्ये येथे
+            <span class="highlight">घड्याळ</span> बसवले गेले. प्रत्येक काचेवर
+            <strong>शिवाजी महाराजांच्या जीवनावरील चित्रण</strong> आहे. येथे
+            <strong>प्राणी संग्रहालय</strong> आणि मैदान देखील आहे.
+          </p>
+          <p>
+            आजही हे <strong>श्रीमंत शाहू महाराजांचे निवासस्थान</strong> आहे.
+            ईमारतीतून कोल्हापूरच्या
+            <strong>राजकीय आणि सांस्कृतिक इतिहासाचे दर्शन</strong> घडते. भव्य
+            दरबार, नक्षीदार छत, फरशी, चित्रकला, आणि ऐतिहासिक वस्तू संग्रहीत
+            केलेल्या संग्रहालयातून त्याचा इतिहास जपलेला आहे.
+          </p>
+          <p>
+            संपूर्ण बांधकामात निओ-मुघल पद्धती, अडकाव नक्षी, घुमट आणि अष्टकोनी
+            बुरूज यांचा समावेश आहे. <span class="highlight">दरबार कक्ष</span> हा
+            सर्वात भव्य भाग असून, राजघराण्याच्या वैभवाची साक्ष देतो.
+          </p>
+          <p>
+            Wikipedia Link:
+            <a
+              href="https://mr.wikipedia.org/wiki/%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A5%82_%E0%A4%AA%E0%A5%85%E0%A4%B2%E0%A5%87%E0%A4%B8"
+              >Click Here</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="compare-box">
+        <div class="compare-text">Rankala Lake</div>
+        <div class="compare-images">
+          <div class="image-box">
+            <img src="img/or.jpg" alt="Old Rankala Lake" />
+            <span>Old</span>
+          </div>
+          <div class="image-box">
+            <img src="img/nr.jpg" alt="New Rankala Lake" />
+            <span>New</span>
+          </div>
+        </div>
+        <div class="rankala-description">
+          <h3 class="rankala-title">रंकाळा तलाव: कोल्हापूरची शांततादायक ओळख</h3>
+          <p>
+            <strong>रंकाळा तलाव</strong> हे
+            <span class="highlight-rankala"
+              >कोल्हापूर शहरातील एक प्रेक्षणीय स्थळ</span
+            >
+            आहे. यास <strong>कोल्हापूरची रंकाळा चौपाटी</strong> असेही संबोधले
+            जाते. पूर्वी येथे एक मोठी <strong>दगडांची खाण</strong> होती.
+          </p>
+          <p>
+            <span class="highlight-rankala">जैन समजुती</span>नुसार, या खाणीतून
+            महालक्ष्मी मंदिरासाठी तसेच राजा गंडरादित्याने बांधलेल्या ३६० जैन
+            मंदिरांसाठी <strong>दगडांचा पुरवठा</strong> केला गेला होता.
+          </p>
+          <p>
+            इ.स. ८०० ते ९०० च्या दरम्यान
+            <strong>मोठ्या भूकंपांमुळे</strong> भूगर्भातील पाण्याचा स्रोत सक्रिय
+            झाला आणि ही खाण <strong>पाण्याने भरून तलावात</strong> रूपांतरित
+            झाली.
+          </p>
+          <p>
+            आजचा रंकाळा तलाव हा
+            <span class="highlight-rankala"
+              >स्थानिक नागरिकांसाठी आणि पर्यटकांसाठी एक निवांत ठिकाण</span
+            >
+            आहे, जिथे निसर्गसौंदर्य, शांतता आणि इतिहास यांचा संगम पाहायला मिळतो.
+          </p>
+        </div>
+      </div>
+
+      <div class="compare-box">
+        <div class="compare-text">Jyotiba Temple</div>
+        <div class="compare-images">
+          <div class="image-box">
+            <img src="img/oj.jpg" alt="Old Rankala Lake" />
+            <span>Old</span>
+          </div>
+          <div class="image-box">
+            <img src="img/nj.jpg" alt="New Rankala Lake" />
+            <span>New</span>
+          </div>
+        </div>
+        <div class="jyotiba-description">
+          <h3 class="jyotiba-title">
+            ज्योतिबा डोंगर: निसर्ग आणि श्रद्धेचा संगम
+          </h3>
+          <p>
+            <strong>समुद्रसपाटीपासून सुमारे ३१०० फूट उंचीवरील</strong> या
+            <span class="highlight-jyotiba">ज्योतिबा डोंगराचा परिसर</span>
+            निसर्गसौंदर्याने भरलेला आहे. कोल्हापूर जिल्ह्याच्या वैभवात आणि ऐहिक
+            ऐश्वर्यात भर घालणाऱ्या या
+            <strong>तीर्थक्षेत्राचा सर्वांगीण विकास</strong> सुरू झाला आहे.
+          </p>
+          <p>
+            <span class="highlight-jyotiba">वाडी रत्नागिरी</span> या नावाने
+            परिचित असलेले हे <strong>ज्योतिबा देवस्थान</strong> कोल्हापूरच्या
+            वायव्येस साडेसतरा कि.मी. अंतरावर आहे.
+          </p>
+          <p>
+            सह्याद्री पर्वतरांगेचा जो फाटा <strong>पन्हाळगड, पावनगड</strong> कडे
+            जातो, त्याच्या पुढील
+            <span class="highlight-jyotiba">शंखाकृती भागावर</span> हे मंदिर
+            वसलेले आहे.
+          </p>
+          <p>
+            <strong>ज्योतिबाचे मंदिर</strong> हे प्राचीन काळापासून प्रसिद्ध असून
+            <span class="highlight-jyotiba">पहाटेचे वातावरण</span> येथे खूप
+            प्रसन्न असते, जेथे श्रद्धा आणि निसर्ग यांचा अद्वितीय संगम अनुभवायला
+            मिळतो.
+          </p>
+          <p>
+            Wikipedia Link:
+            <a href="https://en.wikipedia.org/wiki/Jyotiba_Temple"
+              >Click Here</a
+            >
+          </p>
+        </div>
+      </div>
+      <footer
+        style="
+          background-color: #264653;
+          color: white;
+          padding: 40px 20px;
+          margin-top: 50px;
+        "
+      >
+        <div
+          style="
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+          "
+        >
+          <!-- Site Info -->
+          <div style="flex: 1; min-width: 250px">
+            <h2 style="color: #e9c46a">माझं कोल्हापूर</h2>
+            <p style="margin-top: 10px; line-height: 1.6">
+              एक झलक कोल्हापूरच्या समृद्ध वारशाची. <br />
+              शौर्य, संस्कृती आणि परंपरेचा संगम.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div style="flex: 1; min-width: 200px">
+            <h3 style="color: #f4a261">Quick Links</h3>
+            <ul style="list-style: none; padding: 0; margin-top: 10px">
+              <li>
+                <a href="index.html" style="color: white; text-decoration: none"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="About.html" style="color: white; text-decoration: none"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="Gallery.html"
+                  style="color: white; text-decoration: none"
+                  >Gallery</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div style="flex: 1; min-width: 250px">
+            <h3 style="color: #2a9d8f">Contact</h3>
+            <p style="margin-top: 10px">
+              📍 Kolhapur, Maharashtra<br />
+              📧 example@email.com<br />
+              📞 +91 12345 67890
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom Line -->
+        <div
+          style="
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #ffffff33;
+          "
+        >
+          &copy; 2025 माझं कोल्हापूर | All rights reserved.
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
