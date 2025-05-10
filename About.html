@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - माझं कोल्हापूर</title>
+  <style>
+    :root {
+      --primary: #e76f51;
+      --secondary: #f4a261;
+      --accent: #e9c46a;
+      --teal: #2a9d8f;
+      --dark: #264653;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fa;
+    }
+
+    /* Navbar Styling */
+    nav {
+      background-color: var(--dark);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    /* About Section */
+    .about-section {
+      background: linear-gradient(to right, var(--secondary), var(--accent));
+      padding: 80px 20px 100px;
+    }
+
+    .about-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: auto;
+      gap: 50px;
+    }
+
+    .about-image img {
+      width: 350px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
+      border: 5px solid var(--teal);
+    }
+
+    .about-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .about-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-content h2 {
+      font-size: 3rem;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .about-tagline {
+      display: inline-block;
+      background-color: var(--teal);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      font-size: 1.2rem;
+    }
+
+    .about-content p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* Centered image below section */
+    .about-section img.extra-img {
+      display: block;
+      margin: 60px auto 0;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 5px solid var(--primary);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.4s;
+    }
+
+    .about-section img.extra-img:hover {
+      transform: scale(1.06);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-content p {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">माझं कोल्हापूर</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+    
+    </ul>
+  </nav>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="img/map.jpeg" alt="Kolhapur History Image" />
+      </div>
+      <div class="about-content">
+        <h2>माझं कोल्हापूर</h2>
+        <div class="about-tagline">शौर्य आणि संस्कृतीचा संगम</div>
+        <p>
+          "माझं कोल्हापूर" ही वेबसाईट कोल्हापूर शहराच्या ऐतिहासिक, सांस्कृतिक आणि वास्तू परंपरेचा
+          साक्षात्कार घडवते. इथे तुम्हाला कोल्हापूरच्या जुन्या आणि नव्या छायाचित्रांचा संग्रह
+          पाहायला मिळेल, ज्यातून शहराचा कालानुक्रमिक प्रवास अनुभवता येतो.
+        </p>
+      </div>
+    </div>
+<!-- Footer -->
+<footer style="background-color: #264653; color: white; padding: 40px 20px; margin-top: 50px;">
+  <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+    
+    <!-- Site Info -->
+    <div style="flex: 1; min-width: 250px;">
+      <h2 style="color: #e9c46a;">माझं कोल्हापूर</h2>
+      <p style="margin-top: 10px; line-height: 1.6;">
+        एक झलक कोल्हापूरच्या समृद्ध वारशाची. <br>
+        शौर्य, संस्कृती आणि परंपरेचा संगम.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="color: #f4a261;">Quick Links</h3>
+      <ul style="list-style: none; padding: 0; margin-top: 10px;">
+        <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
+        <li><a href="About.html" style="color: white; text-decoration: none;">About</a></li>
+        <li><a href="Gallery.html" style="color: white; text-decoration: none;">Gallery</a></li>
+      </ul>
+
+      
+    </div>
+
+    <!-- Contact -->
+    <div style="flex: 1; min-width: 250px;">
+      <h3 style="color: #2a9d8f;">Contact</h3>
+      <p style="margin-top: 10px;">
+        📍 Kolhapur, Maharashtra<br>
+        📧 example@email.com<br>
+        📞 +91 12345 67890
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Line -->
+  <div style="text-align: center; padding-top: 20px; margin-top: 30px; border-top: 1px solid #ffffff33;">
+    &copy; 2025 माझं कोल्हापूर | All rights reserved.
+  </div>
+</footer>
+
+  </section>
+
+</body>
+</html>
